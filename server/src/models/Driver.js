@@ -6,47 +6,32 @@ module.exports = (sequelize) => {
   sequelize.define('Driver', {
     id: {
       type: DataTypes.UUID,
-      primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
     },
-    name: {
+    forename: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    lastName: {
+    surname: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [3, 20],
-      },
     },
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
-      validate: {
-        len: [20, 500],
-      },
     },
     image: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isUrl: true,
-      },
     },
     nationality: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [3, 30],
-      },
     },
     dob : {
       type: DataTypes.DATEONLY,
       allowNull: false,
-      validate: {
-        isDate: true,
-      },
     },
   },
   {
